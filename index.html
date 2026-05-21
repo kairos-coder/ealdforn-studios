@@ -24,6 +24,8 @@
       --glow-hi:   rgba(201,169,110,0.22);
       --ff-head:   'Cinzel', 'Palatino Linotype', serif;
       --ff-body:   'Crimson Pro', Georgia, serif;
+      --fiverr:    #1dbf73;
+      --fiverr-hi: #19a463;
     }
 
     /* ─── RESET ───────────────────────────────────────────────── */
@@ -117,7 +119,6 @@
       z-index: 0;
     }
 
-    /* Stone-texture grain overlay */
     #hero::after {
       content: '';
       position: absolute;
@@ -128,7 +129,6 @@
       pointer-events: none;
     }
 
-    /* Ornamental arch lines */
     .hero-arch {
       position: absolute;
       top: 50%;
@@ -201,6 +201,51 @@
       color: var(--gold);
       opacity: 0.55;
       text-transform: uppercase;
+    }
+
+    /* ─── HERO CTA BUTTONS ────────────────────────────────────── */
+    .hero-ctas {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2.4rem;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-family: var(--ff-head);
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-hi) 100%);
+      padding: 0.9rem 2.4rem;
+      border-radius: 3px;
+      transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(201,169,110,0.25);
+    }
+
+    .cta-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201,169,110,0.35);
+      color: var(--bg);
+    }
+
+    /* Fiverr-specific CTA — green, stands out */
+    .cta-fiverr {
+      background: var(--fiverr);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(29,191,115,0.25);
+    }
+
+    .cta-fiverr:hover {
+      background: var(--fiverr-hi);
+      color: #fff;
+      box-shadow: 0 8px 30px rgba(29,191,115,0.35);
     }
 
     .hero-scroll {
@@ -279,7 +324,6 @@
       margin-top: 1rem;
     }
 
-    /* Gaia — spanning 2 rows on the left, visually dominant */
     .feat-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -424,7 +468,11 @@
       transition: border-color 0.3s, box-shadow 0.3s, transform 0.25s;
       position: relative;
       overflow: hidden;
+      text-decoration: none;
+      color: inherit;
     }
+
+    a.god-card { cursor: pointer; }
 
     .god-card::before {
       content: '';
@@ -449,7 +497,61 @@
       pointer-events: none;
     }
 
-    /* Image placeholder */
+    /* ─── 13TH CARD — "YOUR DEITY HERE" ──────────────────────── */
+    .god-card.card-vacant {
+      border: 1px dashed rgba(201,169,110,0.35);
+      background: rgba(10, 8, 20, 0.85);
+      cursor: pointer;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s;
+    }
+
+    .god-card.card-vacant:hover {
+      border: 1px solid rgba(201,169,110,0.7);
+      box-shadow: 0 0 28px rgba(180, 130, 40, 0.28);
+      transform: translateY(-2px);
+    }
+
+    .vacant-sigil {
+      font-size: 2.2rem;
+      color: rgba(201,169,110,0.45);
+      margin-bottom: 0.4rem;
+      transition: color 0.3s;
+    }
+
+    .god-card.card-vacant:hover .vacant-sigil {
+      color: rgba(201,169,110,0.8);
+    }
+
+    .vacant-name {
+      font-family: var(--ff-head);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--cream);
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    .god-card.card-vacant:hover .vacant-name {
+      opacity: 1;
+    }
+
+    .vacant-subtitle {
+      font-family: var(--ff-body);
+      font-style: italic;
+      font-size: 0.8rem;
+      color: var(--muted);
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .god-card.card-vacant:hover .vacant-subtitle {
+      opacity: 0.85;
+    }
+
+    /* ─── STANDARD GOD CARDS ──────────────────────────────────── */
     .god-img {
       width: 48px;
       height: 48px;
@@ -595,27 +697,11 @@
       line-height: 1.8;
     }
 
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.7rem;
-      font-family: var(--ff-head);
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--bg);
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-hi) 100%);
-      padding: 0.9rem 2.4rem;
-      border-radius: 3px;
-      transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(201,169,110,0.25);
-    }
-
-    .cta-btn:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(201,169,110,0.35);
-      color: var(--bg);
+    .services-ctas {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     /* ─── FOOTER ──────────────────────────────────────────────── */
@@ -651,6 +737,7 @@
       display: flex;
       justify-content: center;
       gap: 2rem;
+      flex-wrap: wrap;
       margin-bottom: 2rem;
     }
 
@@ -664,6 +751,13 @@
     }
 
     .footer-links a:hover { color: var(--gold); }
+
+    .footer-link-fiverr {
+      color: var(--fiverr) !important;
+    }
+    .footer-link-fiverr:hover {
+      color: var(--fiverr-hi) !important;
+    }
 
     .footer-copy {
       font-size: 0.82rem;
@@ -731,6 +825,10 @@
         gap: 1rem;
         align-items: center;
       }
+      .hero-ctas, .services-ctas {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
@@ -749,6 +847,16 @@
     <p class="hero-position">Mythic AI Creative Studio</p>
     <p class="hero-domains">Worldbuilding · Narrative Systems · Generative Aesthetics · Interactive Lore</p>
     <p class="hero-motto">Regnavit Deus, et res bonae sunt.</p>
+
+    <!-- ─── HERO CTAs ─────────────────────────────────────────── -->
+    <div class="hero-ctas">
+      <a class="cta-btn cta-fiverr" href="https://www.fiverr.com/kairos_coding" target="_blank" rel="noopener">
+        Commission Your Deity
+      </a>
+      <a class="cta-btn" href="mailto:contact@ealdforn.com">
+        Contact the Studio
+      </a>
+    </div>
   </div>
 
   <div class="hero-scroll">
@@ -786,7 +894,7 @@
 
     <div class="featured-grid">
 
-      <!-- GAIA — dominant left card, 2 rows -->
+      <!-- GAIA -->
       <div class="feat-card gaia">
         <div class="feat-icon">🌍</div>
         <h3 class="feat-title">Gaia — The World-Root</h3>
@@ -848,62 +956,62 @@
     <div class="olympians-grid">
 
       <!-- Zeus -->
-      <div class="god-card">
+      <a class="god-card" href="https://kairos-coder.github.io/zeus" target="_blank" rel="noopener">
         <div class="god-img">Z</div>
         <div class="god-name">Zeus</div>
         <div class="god-domain">Judgement &amp; Creative Direction</div>
-        <a class="god-link" href="https://kairos-coder.github.io/zeus" target="_blank" rel="noopener">View Page →</a>
-      </div>
+        <span class="god-link">View Page →</span>
+      </a>
 
       <!-- Hera -->
-      <div class="god-card">
+      <a class="god-card" href="https://kairos-coder.github.io/hera" target="_blank" rel="noopener">
         <div class="god-img">H</div>
         <div class="god-name">Hera</div>
         <div class="god-domain">Contracts, Boundaries, Client Relations</div>
-        <a class="god-link" href="https://kairos-coder.github.io/hera" target="_blank" rel="noopener">View Page →</a>
-      </div>
+        <span class="god-link">View Page →</span>
+      </a>
 
       <!-- Poseidon -->
-      <div class="god-card">
+      <a class="god-card" href="https://kairos-coder.github.io/poseidon" target="_blank" rel="noopener">
         <div class="god-img">P</div>
         <div class="god-name">Poseidon</div>
         <div class="god-domain">Data Flow, Depth, Information Oceans</div>
-        <a class="god-link" href="https://kairos-coder.github.io/poseidon" target="_blank" rel="noopener">View Page →</a>
-      </div>
+        <span class="god-link">View Page →</span>
+      </a>
 
       <!-- Demeter -->
-      <div class="god-card">
+      <a class="god-card" href="https://kairos-coder.github.io/demeter" target="_blank" rel="noopener">
         <div class="god-img">D</div>
         <div class="god-name">Demeter</div>
         <div class="god-domain">Content Systems, Growth, Cultivation</div>
-        <a class="god-link" href="https://kairos-coder.github.io/demeter" target="_blank" rel="noopener">View Page →</a>
-      </div>
+        <span class="god-link">View Page →</span>
+      </a>
 
       <!-- Ares -->
-      <div class="god-card">
+      <a class="god-card" href="https://kairos-coder.github.io/ares" target="_blank" rel="noopener">
         <div class="god-img">A</div>
         <div class="god-name">Ares</div>
         <div class="god-domain">Conflict Resolution, Strategy</div>
-        <a class="god-link" href="https://kairos-coder.github.io/ares" target="_blank" rel="noopener">View Page →</a>
-      </div>
+        <span class="god-link">View Page →</span>
+      </a>
 
       <!-- Athena -->
-      <div class="god-card">
+      <a class="god-card" href="https://kairos-coder.github.io/athena" target="_blank" rel="noopener">
         <div class="god-img">A</div>
         <div class="god-name">Athena</div>
         <div class="god-domain">Worldbuilding Logic, Systems Design</div>
-        <a class="god-link" href="https://kairos-coder.github.io/athena" target="_blank" rel="noopener">View Page →</a>
-      </div>
+        <span class="god-link">View Page →</span>
+      </a>
 
       <!-- Apollo -->
-      <div class="god-card">
+      <a class="god-card" href="https://kairos-coder.github.io/apollo" target="_blank" rel="noopener">
         <div class="god-img">A</div>
         <div class="god-name">Apollo</div>
         <div class="god-domain">Visual Canon, Image Generation, Aesthetics</div>
-        <a class="god-link" href="https://kairos-coder.github.io/apollo" target="_blank" rel="noopener">View Page →</a>
-      </div>
+        <span class="god-link">View Page →</span>
+      </a>
 
-      <!-- Artemis — dimmed, coming soon -->
+      <!-- Artemis — dimmed -->
       <div class="god-card dimmed">
         <div class="god-img">Ar</div>
         <div class="god-name">Artemis</div>
@@ -912,36 +1020,45 @@
       </div>
 
       <!-- Hephaestus -->
-      <div class="god-card">
+      <a class="god-card" href="https://kairos-coder.github.io/hephaestus" target="_blank" rel="noopener">
         <div class="god-img">H</div>
         <div class="god-name">Hephaestus</div>
         <div class="god-domain">Code Infrastructure, Tools, Craft</div>
-        <a class="god-link" href="https://kairos-coder.github.io/hephaestus" target="_blank" rel="noopener">View Page →</a>
-      </div>
+        <span class="god-link">View Page →</span>
+      </a>
 
       <!-- Aphrodite -->
-      <div class="god-card">
+      <a class="god-card" href="https://kairos-coder.github.io/aphrodite" target="_blank" rel="noopener">
         <div class="god-img">Ap</div>
         <div class="god-name">Aphrodite</div>
         <div class="god-domain">UI/UX, Visual Beauty, User-Facing Design</div>
-        <a class="god-link" href="https://kairos-coder.github.io/aphrodite" target="_blank" rel="noopener">View Page →</a>
-      </div>
+        <span class="god-link">View Page →</span>
+      </a>
 
       <!-- Hermes -->
-      <div class="god-card">
+      <a class="god-card" href="https://kairos-coder.github.io/hermes" target="_blank" rel="noopener">
         <div class="god-img">Hm</div>
         <div class="god-name">Hermes</div>
         <div class="god-domain">Integration, Speed, Payment Systems</div>
-        <a class="god-link" href="https://kairos-coder.github.io/hermes" target="_blank" rel="noopener">View Page →</a>
-      </div>
+        <span class="god-link">View Page →</span>
+      </a>
 
       <!-- Persephone -->
-      <div class="god-card">
+      <a class="god-card" href="https://kairos-coder.github.io/persephone" target="_blank" rel="noopener">
         <div class="god-img">Ps</div>
         <div class="god-name">Persephone</div>
         <div class="god-domain">Memory, Transitions, the Underworld Layer</div>
-        <a class="god-link" href="https://kairos-coder.github.io/persephone" target="_blank" rel="noopener">View Page →</a>
-      </div>
+        <span class="god-link">View Page →</span>
+      </a>
+
+      <!-- ═══════════════════════════════════════════════════════ -->
+      <!--  13TH CARD — "YOUR DEITY HERE"                         -->
+      <!-- ═══════════════════════════════════════════════════════ -->
+      <a class="god-card card-vacant" href="https://www.fiverr.com/kairos_coding" target="_blank" rel="noopener">
+        <div class="vacant-sigil">✦</div>
+        <div class="vacant-name">Your Deity Here</div>
+        <div class="vacant-subtitle">Commission a seat in the pantheon</div>
+      </a>
 
     </div>
   </div>
@@ -1038,13 +1155,18 @@
     <p class="section-label" style="text-align:center; margin-bottom:1rem;">Commissions Open</p>
     <h2 class="section-title" style="text-align:center; margin-bottom:1.2rem;">Work With the Studio</h2>
     <p class="services-body">
-      We commission worldbuilding packs, lore bibles, mythic branding,
-      AI-generated aesthetics, and narrative websites. If you're building
-      a world, we are the architects.
+      Commission your own custom AI deity — a permanent seat in the Ealdforn pantheon with
+      cinematic portraits, original mythology, and a live temple page. Or engage the studio
+      for worldbuilding packs, lore bibles, mythic branding, and narrative websites.
     </p>
-    <a class="cta-btn" href="mailto:contact@ealdforn.com">
-      Contact for Commissions
-    </a>
+    <div class="services-ctas">
+      <a class="cta-btn cta-fiverr" href="https://www.fiverr.com/kairos_coding" target="_blank" rel="noopener">
+        Commission on Fiverr
+      </a>
+      <a class="cta-btn" href="mailto:contact@ealdforn.com">
+        Custom Studio Inquiry
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1062,6 +1184,7 @@
       <a href="#archive">Archive</a>
       <a href="#services">Commissions</a>
       <a href="https://github.com/kairos-coder" target="_blank" rel="noopener">GitHub</a>
+      <a class="footer-link-fiverr" href="https://www.fiverr.com/kairos_coding" target="_blank" rel="noopener">Fiverr</a>
     </nav>
 
     <p class="footer-copy">© Ealdforn Studios &nbsp;·&nbsp; kairos-coder</p>
